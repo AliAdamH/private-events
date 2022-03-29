@@ -1,0 +1,10 @@
+<h1>Hello I'm <%= @user.email %></h1>
+<% @user_events.each do |event| %>
+
+    <div>
+        <h3><%= event.title %></h3>
+        <small><%= event.location %></small> <br/>
+        <small><%= event.date %></small>
+    </div>
+
+<% end %>
