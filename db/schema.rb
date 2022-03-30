@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_222029) do
+ActiveRecord::Schema.define(version: 2022_03_30_113035) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "date"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_03_29_222029) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.integer "creator_id", null: false
+    t.text "description"
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
