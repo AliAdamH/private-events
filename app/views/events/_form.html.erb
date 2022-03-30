@@ -1,27 +1,31 @@
-<%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= simple_form_for(@event) do |f|%>
+  <%= f.error_notification %>
 
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="field">
+    <div class="control">
+      <%= f.input :title, label: "Event Title : ", input_html: { class: "input" }, wrapper: false, 
+      label_html: { class: 'label' }, placeholder: "Your event's title" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <div class="control">
+      <%= f.input :location, label: "Your event's location : ", input_html: { class: "input" }, wrapper: false, 
+      label_html: { class: 'label' }, placeholder: "..." %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :description, label: "Describe your event : ", input_html: { class: "textarea " }, wrapper: false, 
+      label_html: { class: 'label' }, placeholder: "..." %>
+    </div>
+  </div>
+
+
+  <div class="level">
+      <div class="level-item is-justify-content-flex-end">
+        <%= f.button :submit, class: "button is-danger has-text-weight-medium" %>
+      </div>
   </div>
 <% end %>
