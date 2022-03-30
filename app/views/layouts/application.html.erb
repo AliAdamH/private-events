@@ -41,8 +41,8 @@
           <div class="navbar-end">
               <div class="buttons has-text-weight-bold navbar-item">
                 <% if user_signed_in? %>
-
-                  <%= link_to 'Sign out',destroy_user_session_path,  method: :delete , class: 'button is-warning' %>
+                  <%= link_to 'New Event', new_event_path, class: 'button'%>
+                  <%= link_to 'Sign out',destroy_user_session_path,  method: :delete , class: 'button is-danger' %>
                 <% else %>
                   <%= link_to 'Login', new_user_session_path, class: 'button'%>
                   <%= link_to 'Sign up', new_user_registration_path, class: 'button is-danger' %>
