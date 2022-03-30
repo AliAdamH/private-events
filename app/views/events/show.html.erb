@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column card is-6">
+          <header class="card-header">
+              <p class="card-header-title is-centered">
+                  <%= @event.title %>
+              </p>
+          </header>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+          <div class="card-content">
+              <div class="content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, possimus! Debitis eligendi quos, dolores, vero facere rerum velit illum temporibus dicta dolor culpa, inventore repellendus voluptatum dolorem ab iure omnis!
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
