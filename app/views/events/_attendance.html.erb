@@ -1,0 +1,4 @@
+<%= form_with url: event_attendances_path do |f| %>
+    <%= f.hidden_field :attended_event_id, value: @event.id %>
+    <%= f.submit 'Attend', class: "button is-danger has-text-weight-medium" %>
+<% end %>
