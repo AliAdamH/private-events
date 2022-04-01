@@ -2,7 +2,7 @@
     <div class="container">
         <div class="columns">
 
-            <div class="column is-one-third">
+            <div class="column is-one-quarter">
                 <div class="card">
                     <div class="card-header">
                         <p class="card-header-title">
@@ -15,10 +15,10 @@
                 </div>
             </div>
 
-            <div class="column is-one-third">
+            <div class="column is-one-quarter">
                 <div class="box">
+                    <h2 class='title has-text-centered'>Created Events</h2>
                     <% @user_events.each do |event| %>
-                        <h2 class='title has-text-centered'>Created Events</h2>
                         <div class='notification is-danger is-light'>
                             <h3 class='subtitle'><%= event.title %></h3>
                             <p class="content">
@@ -33,10 +33,28 @@
                 </div>
             </div>
 
-            <div class="column is-one-third">
+            <div class="column is-one-quarter">
                 <div class="box">
-                    <% @user.attended_events.each do |event| %>
-                        <h2 class='title has-text-centered'>Attended Events</h2>
+                    <h2 class='title has-text-centered'>Future Events</h2>
+                    <% @user.attended_events.filter {|e| e.date > Date.today }.each do |event| %>
+                        <div class='notification is-danger is-light'>
+                            <h3 class='subtitle'><%= event.title %></h3>
+                            <p class="content">
+                                <%= event.description %>
+                            </p>
+                            <small><%= event.location %></small> <br/>
+    
+                            <small><%= event.date %></small>
+                        </div>
+                        
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <h2 class='title has-text-centered'>Past Events</h2>
+                    <% @user.attended_events.filter {|e| e.date < Date.today }.each do |event| %>
                         <div class='notification is-danger is-light'>
                             <h3 class='subtitle'><%= event.title %></h3>
                             <p class="content">
