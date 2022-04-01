@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_03_30_224158) do
 
-  create_table "event_attendances", id: false, force: :cascade do |t|
+  create_table "event_attendances", force: :cascade do |t|
     t.integer "attendee_id"
     t.integer "attended_event_id"
   end
