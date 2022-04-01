@@ -1,10 +1,56 @@
-<h1>Hello I'm <%= @user.email %></h1>
-<% @user_events.each do |event| %>
+<section class="section">
+    <div class="container">
+        <div class="columns">
 
-    <div>
-        <h3><%= event.title %></h3>
-        <small><%= event.location %></small> <br/>
-        <small><%= event.date %></small>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-header-title">
+                        <%= @user.email %>
+                        </p>
+                        <figure class="image card-header-icon">
+                            <img class="is-rounded is64x64" src="https://bulma.io/images/placeholders/64x64.png" alt="Placeholder image">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-one-third">
+                <div class="box">
+                    <% @user_events.each do |event| %>
+                        <h2 class='title has-text-centered'>Created Events</h2>
+                        <div class='notification is-danger is-light'>
+                            <h3 class='subtitle'><%= event.title %></h3>
+                            <p class="content">
+                                <%= event.description %>
+                            </p>
+                            <small><%= event.location %></small> <br/>
+    
+                            <small><%= event.date %></small>
+                        </div>
+                        
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="column is-one-third">
+                <div class="box">
+                    <% @user.attended_events.each do |event| %>
+                        <h2 class='title has-text-centered'>Attended Events</h2>
+                        <div class='notification is-danger is-light'>
+                            <h3 class='subtitle'><%= event.title %></h3>
+                            <p class="content">
+                                <%= event.description %>
+                            </p>
+                            <small><%= event.location %></small> <br/>
+    
+                            <small><%= event.date %></small>
+                        </div>
+                        
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
     </div>
-
-<% end %>
+</section>
