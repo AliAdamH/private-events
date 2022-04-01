@@ -22,14 +22,10 @@ class EventAttendancesController < ApplicationController
 
 
   def destroy
-    event = Event.find(params[:attended_event_id])
-    @event_attendance = EventAttendance.find_by(
-      attended_event_id: event.id,
-      attendee_id: current_user.id
-    )
+    @event_attendance = EventAttendance.find(params[:id])
     @event_attendance.destroy
     flash[:notice] = 'You have successfully unattended the event'
-    redirect_to event_path(event)
+    redirect_back fallback_location: root_path
   end
 
   private

@@ -16,7 +16,11 @@
           <% if user_signed_in? %>
           <div class="level">
             <div class="level-item is-justify-content-flex-center">
-              <%= render 'attendance' %>
+              <% unless current_user.attended_events.include?(@event) %>
+                <%= render 'attendance' %>
+              <% else %>
+                <%= render 'unattend' %>
+              <% end %>
             </div>
           </div>
           <% end %>

@@ -1,0 +1,2 @@
+<% attendance = EventAttendance.find_by(attendee_id: current_user.id, attended_event_id: @event.id) %>
+<%= link_to 'Unattend', event_attendance_path(attendance), data: { method: :delete }, class: "button is-warning has-text-weight-medium" %> 
