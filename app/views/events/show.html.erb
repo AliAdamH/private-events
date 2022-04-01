@@ -1,7 +1,8 @@
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column card is-6">
+      <div class="column is-6">
+        <div class="card">
           <header class="card-header">
               <p class="card-header-title is-centered">
                   <%= @event.title %>
@@ -24,16 +25,30 @@
             </div>
           </div>
           <% end %>
+          <% if current_user.id == @event.creator_id %>
+            <div class="card-footer">
+              <%= link_to 'Edit', edit_event_path(@event), class: 'card-footer-item button is-link is-inverted' %>
+              <%= link_to 'Delete', event_path(@event),
+                  data: { method: :delete },
+                  class: 'card-footer-item button is-link is-inverted'
+               %>
+            </div>
+          </div>
+          <% end %>
       </div>
-      <div class="column">
-        <div class="content">
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="box">
+          <h3 class='title is-4 has-text-centered'> Attendees List </h3>
           <% @event.attendees.each do |attendee| %>
               <p>
                 <%= attendee.email %>
               </p>
           <% end %>
         </div>
+        </div>
       </div>
-    </div>
   </div>
 </section>
