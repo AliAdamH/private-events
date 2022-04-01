@@ -16,7 +16,7 @@
           <% if user_signed_in? %>
           <div class="level">
             <div class="level-item is-justify-content-flex-center">
-              <% unless current_user.attended_events.include?(@event) %>
+              <% unless @event.attendees.include?(current_user) %>
                 <%= render 'attendance' %>
               <% else %>
                 <%= render 'unattend' %>
@@ -24,6 +24,15 @@
             </div>
           </div>
           <% end %>
+      </div>
+      <div class="column">
+        <div class="content">
+          <% @event.attendees.each do |attendee| %>
+              <p>
+                <%= attendee.email %>
+              </p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

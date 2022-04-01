@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event = Event.includes(:attendees).where(id: params[:id]).first
   end
 
   # GET /events/new
