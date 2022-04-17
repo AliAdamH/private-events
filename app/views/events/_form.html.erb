@@ -1,31 +1,35 @@
-<%= simple_form_for(@event) do |f|%>
-  <%= f.error_notification %>
-
+<%= form_with model: @event do |f| %>
   <div class="field">
+    <%= f.label :title, 'Your even\'s title: ', class: 'label' %>
     <div class="control">
-      <%= f.input :title, label: "Event Title : ", input_html: { class: "input" }, wrapper: false, 
-      label_html: { class: 'label' }, placeholder: "Your event's title" %>
+        <%= f.text_field :title, class: 'input'%>
     </div>
   </div>
 
   <div class="field">
+    <%= f.label :description, 'Describe your event', class: 'label' %>
     <div class="control">
-      <%= f.input :location, label: "Your event's location : ", input_html: { class: "input" }, wrapper: false, 
-      label_html: { class: 'label' }, placeholder: "..." %>
+        <%= f.text_area :description, class: 'input'%>
     </div>
   </div>
 
   <div class="field">
+    <%= f.label :location, 'Your even\'s Location: ', class: 'label' %>
     <div class="control">
-      <%= f.input :description, label: "Describe your event : ", input_html: { class: "textarea " }, wrapper: false, 
-      label_html: { class: 'label' }, placeholder: "..." %>
+        <%= f.text_field :location, class: 'input'%>
+    </div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :date, 'Your event\'s date: ', class: 'label'%>
+    <div class="control">
+    <%= f.datetime_field :date, class:'input' %>
     </div>
   </div>
 
-
-  <div class="level">
+    <div class="level">
       <div class="level-item is-justify-content-flex-end">
-        <%= f.button :submit, class: "button is-danger has-text-weight-medium" %>
+        <%= f.submit :Create, class: "button is-danger has-text-weight-medium" %>
       </div>
   </div>
 <% end %>
