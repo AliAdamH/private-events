@@ -24,16 +24,17 @@
               <% end %>
             </div>
           </div>
-          <% end %>
-          <% if current_user.id == @event.creator_id %>
-            <div class="card-footer">
-              <%= link_to 'Edit', edit_event_path(@event), class: 'card-footer-item button is-link is-inverted' %>
-              <%= link_to 'Delete', event_path(@event),
-                  data: { method: :delete },
-                  class: 'card-footer-item button is-link is-inverted'
-               %>
+          
+            <% if current_user.id == @event.creator_id %>
+              <div class="card-footer">
+                <%= link_to 'Edit', edit_event_path(@event), class: 'card-footer-item button is-link is-inverted' %>
+                <%= link_to 'Delete', event_path(@event),
+                    data: { method: :delete },
+                    class: 'card-footer-item button is-link is-inverted'
+                %>
+              </div>
             </div>
-          </div>
+            <% end %>
           <% end %>
       </div>
     </div>
