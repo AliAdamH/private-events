@@ -19,11 +19,18 @@
         <%= f.text_field :location, class: 'input'%>
     </div>
   </div>
-  
+
   <div class="field">
     <%= f.label :date, 'Your event\'s date: ', class: 'label'%>
     <div class="control">
-    <%= f.datetime_field :date, class:'input' %>
+    <%= f.date_select :date, class:'select' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :time, 'Your event\'s time: ', class: 'label'%>
+    <div class="control">
+    <%= f.time_select :time, class:'input' %>
     </div>
   </div>
 
