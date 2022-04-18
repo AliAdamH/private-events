@@ -6,12 +6,11 @@
             </p>
         </header>
 
-        <div class="card-content">
+        <div class="card-content event-card has-text-centered">
             <div class="content">
                 <%= event.description %>
-                <%= event.date.strftime('%a %b %d %Y') %>
-                <%= event.time.strftime('%H:%M')%>
             </div>
+            <%= event.date.strftime('%a %b %d %Y') %> | <%= event.time.strftime('%H:%M')%>
         </div>
     <footer class="card-footer">
         <a href="<%= event_path(event)%>" class="card-footer-item">Details</a>
