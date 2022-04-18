@@ -27,7 +27,7 @@
             <div class="column is-one-quarter">
                 <div class="box has-text-centered">
                     <h2 class='title'>Future Events</h2>
-                    <% future_events =  @user.attended_events.filter {|e| e.date > Date.today } %>
+                    <% future_events =  @user.attended_events.filter {|e| e.date >= Date.today } %>
                     <%= render(partial: 'panel', collection: future_events, as: :event) || 'No Events to display' %>
                 </div>
             </div>

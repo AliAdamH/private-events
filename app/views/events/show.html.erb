@@ -11,7 +11,8 @@
 
           <div class="card-content">
               <div class="content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, possimus! Debitis eligendi quos, dolores, vero facere rerum velit illum temporibus dicta dolor culpa, inventore repellendus voluptatum dolorem ab iure omnis!
+                  <%= @event.description %><br/>
+                  <small><%= @event.date.strftime('%a %b %d %Y')%> | <%= @event.time.strftime('%H:%M')%></small><br/>
               </div>
           </div>
           <% if user_signed_in? %>
