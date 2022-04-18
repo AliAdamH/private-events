@@ -1,0 +1,10 @@
+<div class='notification is-danger is-light'>
+    <h3 class='subtitle'><%= event.title %></h3>
+    <p class="content">
+        <%= event.description %>
+    </p>
+    <small><%= event.location %></small> <br/>
+
+    <small><%= event.date.strftime('%a %b %d %Y')%> | <%= event.time.strftime('%H:%M')%></small><br/>
+    <%= link_to 'See more info', event_path(event) %>
+</div>

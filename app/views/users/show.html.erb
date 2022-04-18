@@ -15,57 +15,28 @@
                 </div>
             </div>
 
+
+            
             <div class="column is-one-quarter">
-                <div class="box">
-                    <h2 class='title has-text-centered'>Created Events</h2>
-                    <% @user_events.each do |event| %>
-                        <div class='notification is-danger is-light'>
-                            <h3 class='subtitle'><%= event.title %></h3>
-                            <p class="content">
-                                <%= event.description %>
-                            </p>
-                            <small><%= event.location %></small> <br/>
-    
-                            <small><%= event.date %></small>
-                        </div>
-                        
-                    <% end %>
+                <div class="box has-text-centered">
+                    <h2 class='title'>Created Events</h2>
+                    <%= render(partial: 'panel', collection: @user_events, as: :event) || 'No Events to display' %>
                 </div>
             </div>
 
             <div class="column is-one-quarter">
-                <div class="box">
-                    <h2 class='title has-text-centered'>Future Events</h2>
-                    <% @user.attended_events.filter {|e| e.date > Date.today }.each do |event| %>
-                        <div class='notification is-danger is-light'>
-                            <h3 class='subtitle'><%= event.title %></h3>
-                            <p class="content">
-                                <%= event.description %>
-                            </p>
-                            <small><%= event.location %></small> <br/>
-    
-                            <small><%= event.date %></small>
-                        </div>
-                        
-                    <% end %>
+                <div class="box has-text-centered">
+                    <h2 class='title'>Future Events</h2>
+                    <% future_events =  @user.attended_events.filter {|e| e.date > Date.today } %>
+                    <%= render(partial: 'panel', collection: future_events, as: :event) || 'No Events to display' %>
                 </div>
             </div>
 
             <div class="column is-one-quarter">
-                <div class="box">
-                    <h2 class='title has-text-centered'>Past Events</h2>
-                    <% @user.attended_events.filter {|e| e.date < Date.today }.each do |event| %>
-                        <div class='notification is-danger is-light'>
-                            <h3 class='subtitle'><%= event.title %></h3>
-                            <p class="content">
-                                <%= event.description %>
-                            </p>
-                            <small><%= event.location %></small> <br/>
-    
-                            <small><%= event.date %></small>
-                        </div>
-                        
-                    <% end %>
+                <div class="box has-text-centered">
+                    <h2 class='title'>Past Events</h2>
+                    <% past_events = @user.attended_events.filter {|e| e.date < Date.today } %>
+                    <%= render(partial: 'panel', collection: past_events, as: :event) || 'No Events to display' %>
                 </div>
             </div>
 
