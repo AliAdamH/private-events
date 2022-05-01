@@ -1,6 +1,17 @@
+<% if @event.errors.any? %>
+  <div class="notification is-warning" id="error_explanation">
+    <h2 class="title is-4">Your event contains <%= pluralize(@event.errors.count, "error") %></h2>
+
+    <ul>
+      <% @event.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_with model: @event do |f| %>
   <div class="field">
-    <%= f.label :title, 'Your even\'s title: ', class: 'label' %>
+    <%= f.label :title, 'Your event\'s title: ', class: 'label' %>
     <div class="control">
         <%= f.text_field :title, class: 'input'%>
     </div>
@@ -14,7 +25,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :location, 'Your even\'s Location: ', class: 'label' %>
+    <%= f.label :location, 'Your event\'s Location: ', class: 'label' %>
     <div class="control">
         <%= f.text_field :location, class: 'input'%>
     </div>
