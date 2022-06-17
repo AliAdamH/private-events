@@ -6,8 +6,14 @@ FactoryBot.define do
    title { "An adequate title" }
    description { "An adequate description" }
    creator { create(:user) }
-  end 
 
-
-
+   trait :blank_invalid do
+    date { nil }
+    time { nil }
+    location { nil }
+    title { nil }
+    description { nil }
+    creator { nil }
+   end
+  end
 end
